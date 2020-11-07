@@ -19,7 +19,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import de.kai_morich.simple_bluetooth_terminal.R;
 
 public class DevicesFragment extends ListFragment {
 

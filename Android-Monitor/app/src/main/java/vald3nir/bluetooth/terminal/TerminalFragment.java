@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import de.kai_morich.simple_bluetooth_terminal.R;
 
 public class TerminalFragment extends Fragment implements ServiceConnection, SerialListener {
 

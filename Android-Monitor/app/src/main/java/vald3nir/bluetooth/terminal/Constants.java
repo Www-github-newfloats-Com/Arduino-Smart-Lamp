@@ -1,6 +1,5 @@
 package vald3nir.bluetooth.terminal;
 
-import de.kai_morich.simple_bluetooth_terminal.BuildConfig;
 
 class Constants {
 
