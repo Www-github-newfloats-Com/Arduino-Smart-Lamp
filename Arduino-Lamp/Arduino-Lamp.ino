@@ -12,6 +12,74 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 #define DELAY_NORMAL 10000
 #define DELAY_FAST 50
 
+// -----------------------------------------------------------------------------------
+
+void setPixel(int pixel, byte red, byte green, byte blue)
+{
+  pixels.setPixelColor(pixel, pixels.Color(red, green, blue));
+}
+
+// -----------------------------------------------------------------------------------
+
+void setAll(byte red, byte green, byte blue)
+{
+  for (int i = 0; i < NUMPIXELS; i++)
+  {
+    setPixel(i, red, green, blue);
+  }
+  pixels.show();
+}
+
+// -----------------------------------------------------------------------------------
+
+void effect_default()
+{
+  for (int j = 0; j < 3; j++)
+  {
+
+    // Fade IN
+    for (int k = 0; k < 256; k++)
+    {
+      switch (j)
+      {
+      case 0:
+        setAll(k, 0, 0);
+        break;
+      case 1:
+        setAll(0, k, 0);
+        break;
+      case 2:
+        setAll(0, 0, k);
+        break;
+      }
+      pixels.show();
+      delay(5);
+    }
+
+    // Fade OUT
+    for (int k = 255; k >= 0; k--)
+    {
+      switch (j)
+      {
+      case 0:
+        setAll(k, 0, 0);
+        break;
+      case 1:
+        setAll(0, k, 0);
+        break;
+      case 2:
+        setAll(0, 0, k);
+        break;
+      }
+      pixels.show();
+      delay(5);
+    }
+
+  }
+}
+
+// -----------------------------------------------------------------------------------
+
 void setup()
 {
 
@@ -19,41 +87,18 @@ void setup()
   clock_prescale_set(clock_div_1);
 #endif
 
-  Serial.begin(9600);    // Taxa de transmissão na serial
-
+  Serial.begin(9600);
   pixels.begin();
   pixels.clear();
-
-  /* for (int i = 0; i < NUMPIXELS; i++)
-    {
-     pixels.setPixelColor(i, pixels.Color(0, 0, 255));
-     pixels.show();
-    }*/
-
-  pixels.setPixelColor(0, pixels.Color(255, 150, 0));
-  pixels.setPixelColor(1, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(2, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(3, pixels.Color(0, 150, 255));
-  pixels.setPixelColor(4, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(5, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(6, pixels.Color(255, 150, 0));
-  pixels.setPixelColor(7, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(8, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(9, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(10, pixels.Color(0, 150, 255));
-  pixels.setPixelColor(11, pixels.Color(0, 150, 255));
-  pixels.setPixelColor(12, pixels.Color(0, 150, 255));
-  pixels.setPixelColor(13, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(14, pixels.Color(0, 150, 0));
-  pixels.setPixelColor(15, pixels.Color(0, 150, 0));
-  pixels.show();
-
 }
+
 
 void loop()
 {
 
-  if ( Serial.available() )
+  effect_default();
+
+  if (Serial.available())
   {
     Serial.println("recebeu:");
     Serial.println(Serial.readString());
@@ -62,5 +107,4 @@ void loop()
 
   // Mostra os valores lidos, na serial
   //Serial.print("Temp. = ");
-
 }
