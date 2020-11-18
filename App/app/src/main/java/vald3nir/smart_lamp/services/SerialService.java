@@ -1,4 +1,4 @@
-package vald3nir.smart_lamp.bluetooth.terminal;
+package vald3nir.smart_lamp.services;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -21,6 +21,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import vald3nir.smart_lamp.R;
+import vald3nir.smart_lamp.app.Constants;
 
 
 /**
@@ -29,8 +30,8 @@ import vald3nir.smart_lamp.R;
  */
 public class SerialService extends Service implements SerialListener {
 
-    class SerialBinder extends Binder {
-        SerialService getService() {
+    public class SerialBinder extends Binder {
+        public SerialService getService() {
             return SerialService.this;
         }
     }

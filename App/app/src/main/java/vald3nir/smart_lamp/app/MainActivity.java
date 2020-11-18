@@ -1,12 +1,13 @@
-package vald3nir.smart_lamp.bluetooth.terminal;
+package vald3nir.smart_lamp.app;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 
 import vald3nir.smart_lamp.R;
+import vald3nir.smart_lamp.select_device_bluetooth.DevicesFragment;
 
 
 public class MainActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction().add(R.id.fragment, new DevicesFragment(), "devices").commit();

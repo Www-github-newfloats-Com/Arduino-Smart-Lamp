@@ -1,6 +1,6 @@
-package vald3nir.smart_lamp.bluetooth.terminal;
+package vald3nir.smart_lamp.services;
 
-interface SerialListener {
+public interface SerialListener {
 
     void onSerialConnect();
 
