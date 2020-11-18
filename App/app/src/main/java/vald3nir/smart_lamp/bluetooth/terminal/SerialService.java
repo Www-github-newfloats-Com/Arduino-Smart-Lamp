@@ -1,4 +1,4 @@
-package vald3nir.bluetooth.terminal;
+package vald3nir.smart_lamp.bluetooth.terminal;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -19,6 +19,8 @@ import androidx.core.app.NotificationCompat;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import vald3nir.smart_lamp.R;
 
 
 /**

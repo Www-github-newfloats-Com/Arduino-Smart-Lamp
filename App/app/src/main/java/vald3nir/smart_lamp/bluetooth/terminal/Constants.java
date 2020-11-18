@@ -1,5 +1,7 @@
-package vald3nir.bluetooth.terminal;
+package vald3nir.smart_lamp.bluetooth.terminal;
 
+
+import vald3nir.smart_lamp.BuildConfig;
 
 class Constants {
 
@@ -11,5 +13,6 @@ class Constants {
     // values have to be unique within each app
     static final int NOTIFY_MANAGER_START_FOREGROUND_SERVICE = 1001;
 
-    private Constants() {}
+    private Constants() {
+    }
 }

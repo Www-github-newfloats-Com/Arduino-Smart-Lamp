@@ -1,4 +1,4 @@
-package vald3nir.bluetooth.terminal;
+package vald3nir.smart_lamp.bluetooth.terminal;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import vald3nir.smart_lamp.R;
 
 
 public class DevicesFragment extends ListFragment {

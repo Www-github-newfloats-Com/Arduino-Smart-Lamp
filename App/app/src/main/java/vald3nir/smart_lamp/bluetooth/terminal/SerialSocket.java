@@ -1,4 +1,4 @@
-package vald3nir.bluetooth.terminal;
+package vald3nir.smart_lamp.bluetooth.terminal;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;

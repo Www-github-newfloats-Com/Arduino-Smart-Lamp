@@ -6,9 +6,9 @@ android {
 
     defaultConfig {
         targetSdkVersion 30
-        minSdkVersion 18
+        minSdkVersion 16
         vectorDrawables.useSupportLibrary true
-        applicationId "vald3nir.bluetooth.terminal"
+        applicationId "vald3nir.smart_lamp"
         versionCode 1
         versionName "1.0"
     }

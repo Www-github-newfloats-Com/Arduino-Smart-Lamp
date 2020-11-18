@@ -1,4 +1,4 @@
-package vald3nir.bluetooth.terminal;
+package vald3nir.smart_lamp.bluetooth.terminal;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -25,6 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import vald3nir.smart_lamp.R;
 
 
 public class TerminalFragment extends Fragment implements ServiceConnection, SerialListener {

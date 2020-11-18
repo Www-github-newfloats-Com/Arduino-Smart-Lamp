@@ -9,8 +9,10 @@
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-#define DELAY_NORMAL 10000
-#define DELAY_FAST 50
+byte R = 0;
+byte G = 0;
+byte B = 0;
+int freq = 1000;
 
 // -----------------------------------------------------------------------------------
 
@@ -34,6 +36,7 @@ void setAll(byte red, byte green, byte blue)
 
 void effect_default()
 {
+  pixels.clear();
   for (int j = 0; j < 3; j++)
   {
 
@@ -42,15 +45,15 @@ void effect_default()
     {
       switch (j)
       {
-      case 0:
-        setAll(k, 0, 0);
-        break;
-      case 1:
-        setAll(0, k, 0);
-        break;
-      case 2:
-        setAll(0, 0, k);
-        break;
+        case 0:
+          setAll(k, 0, 0);
+          break;
+        case 1:
+          setAll(0, k, 0);
+          break;
+        case 2:
+          setAll(0, 0, k);
+          break;
       }
       pixels.show();
       delay(5);
@@ -61,20 +64,19 @@ void effect_default()
     {
       switch (j)
       {
-      case 0:
-        setAll(k, 0, 0);
-        break;
-      case 1:
-        setAll(0, k, 0);
-        break;
-      case 2:
-        setAll(0, 0, k);
-        break;
+        case 0:
+          setAll(k, 0, 0);
+          break;
+        case 1:
+          setAll(0, k, 0);
+          break;
+        case 2:
+          setAll(0, 0, k);
+          break;
       }
       pixels.show();
       delay(5);
     }
-
   }
 }
 
@@ -89,22 +91,22 @@ void setup()
 
   Serial.begin(9600);
   pixels.begin();
-  pixels.clear();
+  effect_default();
 }
-
 
 void loop()
 {
-
-  effect_default();
-
   if (Serial.available())
   {
-    Serial.println("recebeu:");
-    Serial.println(Serial.readString());
-    pixels.clear();
+    R = Serial.readStringUntil(',').toInt();
+    G = Serial.readStringUntil(',').toInt();
+    B = Serial.readStringUntil(',').toInt();
+    freq = Serial.readStringUntil(',').toInt();
   }
 
-  // Mostra os valores lidos, na serial
-  //Serial.print("Temp. = ");
+  setAll(R, G, B);
+  delay(freq);
+  setAll(0, 0, 0);
+  delay(freq);
+
 }
