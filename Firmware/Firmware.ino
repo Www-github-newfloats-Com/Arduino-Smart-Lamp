@@ -7,6 +7,10 @@
 #define PIN 7
 #define NUMPIXELS 16
 
+/*
+  Colors LED cables: GREEN -> DATA; WHITE -> POWER; ORAGE -> GROUND
+*/
+
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 byte R = 0;
@@ -91,22 +95,37 @@ void setup()
 
   Serial.begin(9600);
   pixels.begin();
-  effect_default();
+  // effect_default();
 }
 
 void loop()
 {
-  if (Serial.available())
-  {
-    R = Serial.readStringUntil(',').toInt();
-    G = Serial.readStringUntil(',').toInt();
-    B = Serial.readStringUntil(',').toInt();
-    freq = Serial.readStringUntil(',').toInt();
-  }
 
-  setAll(R, G, B);
-  delay(freq);
-  setAll(0, 0, 0);
-  delay(freq);
+  effect_default(); 
+  effect_default(); 
+  effect_default(); 
+  effect_default(); 
+  effect_default();
+  
+  setAll(255, 0, 0);
+  delay(5000);
+  setAll(0, 255,  0);
+  delay(5000);
+  setAll(0, 0, 255);
+  delay(5000);
+
+  /* if (Serial.available())
+    {
+     R = Serial.readStringUntil(',').toInt();
+     G = Serial.readStringUntil(',').toInt();
+     B = Serial.readStringUntil(',').toInt();
+     freq = Serial.readStringUntil(',').toInt();
+    }
+
+    setAll(R, G, B);
+    delay(freq);
+
+    setAll(0, 0, 0);
+    delay(freq);*/
 
 }
