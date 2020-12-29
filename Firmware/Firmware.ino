@@ -4,19 +4,22 @@
 #include <avr/power.h>
 #endif
 
-#define PIN 7
+#define SONG_PIN 3
+#define LED_PIN 8
 #define NUMPIXELS 16
 
 /*
   Colors LED cables: GREEN -> DATA; WHITE -> POWER; ORAGE -> GROUND
 */
 
-Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+// defines variables
+Adafruit_NeoPixel pixels(NUMPIXELS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 byte R = 0;
 byte G = 0;
 byte B = 0;
-int freq = 1000;
+
+int controller = 1;
 
 // -----------------------------------------------------------------------------------
 
@@ -81,6 +84,8 @@ void effect_default()
       pixels.show();
       delay(5);
     }
+
+    setAll(255, 255, 255);
   }
 }
 
@@ -89,43 +94,54 @@ void effect_default()
 void setup()
 {
 
-#if defined(__AVR_ATtiny85__) && (F_CPU == 16000000)
-  clock_prescale_set(clock_div_1);
-#endif
-
   Serial.begin(9600);
   pixels.begin();
-  // effect_default();
+
+  pinMode(SONG_PIN, INPUT);
+
+  effect_default();
 }
 
 void loop()
 {
 
-  effect_default(); 
-  effect_default(); 
-  effect_default(); 
-  effect_default(); 
-  effect_default();
-  
-  setAll(255, 0, 0);
-  delay(5000);
-  setAll(0, 255,  0);
-  delay(5000);
-  setAll(0, 0, 255);
-  delay(5000);
-
-  /* if (Serial.available())
+  if (digitalRead(SONG_PIN) == HIGH)
+  {
+    switch (controller)
     {
-     R = Serial.readStringUntil(',').toInt();
-     G = Serial.readStringUntil(',').toInt();
-     B = Serial.readStringUntil(',').toInt();
-     freq = Serial.readStringUntil(',').toInt();
+
+      case 1:
+        setAll(255, 0, 0); // red
+        controller++;
+        break;
+
+      case 2:
+        setAll(0, 255, 0); // green
+        controller++;
+        break;
+
+      case 3:
+        setAll(0, 0, 255); // blue
+        controller++;
+        break;
+
+      case 4:
+        setAll(80, 0, 80); // purple
+        controller++;
+        break;
+
+      case 5:
+        // setAll(255, 192, 203); // pink
+        setAll(255, 140, 0); // orange
+        controller = 1;
+        break;
+
+      default:
+        break;
     }
 
-    setAll(R, G, B);
-    delay(freq);
 
-    setAll(0, 0, 0);
-    delay(freq);*/
+    delay(500);
 
+  }
 }
