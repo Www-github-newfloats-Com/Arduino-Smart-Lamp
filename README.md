@@ -17,5 +17,7 @@ Library Used -> [Adafruit NeoPixel](https://github.com/adafruit/Adafruit_NeoPixe
 ### Schematic
 
 ### Demos
-![alt text](/Figures/lamp.png)
+
+![alt text](/Figures/lamp.jpg)
+
 ![alt text](/Figures/demo.gif)
