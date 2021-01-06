@@ -1,1 +1,4 @@
-# Arduino-Smart-Lamp
+# Smart Lamp
+
+### Demo
+![alt text](/Figures/demo.gif)
