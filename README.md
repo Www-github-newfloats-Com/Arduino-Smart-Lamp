@@ -14,5 +14,8 @@ Library Used -> [Adafruit NeoPixel](https://github.com/adafruit/Adafruit_NeoPixe
 ## KY-038 (Audio Sensor)
 ![alt text](/Figures/ky038.png)
 
-### Demo
+### Schematic
+
+### Demos
+![alt text](/Figures/lamp.png)
 ![alt text](/Figures/demo.gif)
