@@ -52,15 +52,15 @@ void effect_default()
     {
       switch (j)
       {
-        case 0:
-          setAll(k, 0, 0);
-          break;
-        case 1:
-          setAll(0, k, 0);
-          break;
-        case 2:
-          setAll(0, 0, k);
-          break;
+      case 0:
+        setAll(k, 0, 0);
+        break;
+      case 1:
+        setAll(0, k, 0);
+        break;
+      case 2:
+        setAll(0, 0, k);
+        break;
       }
       pixels.show();
       delay(5);
@@ -71,15 +71,15 @@ void effect_default()
     {
       switch (j)
       {
-        case 0:
-          setAll(k, 0, 0);
-          break;
-        case 1:
-          setAll(0, k, 0);
-          break;
-        case 2:
-          setAll(0, 0, k);
-          break;
+      case 0:
+        setAll(k, 0, 0);
+        break;
+      case 1:
+        setAll(0, k, 0);
+        break;
+      case 2:
+        setAll(0, 0, k);
+        break;
       }
       pixels.show();
       delay(5);
@@ -110,38 +110,36 @@ void loop()
     switch (controller)
     {
 
-      case 1:
-        setAll(255, 0, 0); // red
-        controller++;
-        break;
+    case 1:
+      setAll(255, 0, 0); // red
+      controller++;
+      break;
 
-      case 2:
-        setAll(0, 255, 0); // green
-        controller++;
-        break;
+    case 2:
+      setAll(0, 255, 0); // green
+      controller++;
+      break;
 
-      case 3:
-        setAll(0, 0, 255); // blue
-        controller++;
-        break;
+    case 3:
+      setAll(0, 0, 255); // blue
+      controller++;
+      break;
 
-      case 4:
-        setAll(80, 0, 80); // purple
-        controller++;
-        break;
+    case 4:
+      setAll(80, 0, 80); // purple
+      controller++;
+      break;
 
-      case 5:
-        // setAll(255, 192, 203); // pink
-        setAll(255, 140, 0); // orange
-        controller = 1;
-        break;
+    case 5:
+      // setAll(255, 192, 203); // pink
+      setAll(255, 140, 0); // orange
+      controller = 1;
+      break;
 
-      default:
-        break;
+    default:
+      break;
     }
 
-
     delay(500);
-
   }
 }
