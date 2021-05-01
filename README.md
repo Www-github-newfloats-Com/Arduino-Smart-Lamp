@@ -1,4 +1,4 @@
-# Smart Lamp
+# Arduino Smart Lamp
 Smart lamp using the Arduino microcontroller connected with a sound sensor to change colors from palms made by the user
 
 ### Technologies Used
