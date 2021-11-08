@@ -8,6 +8,8 @@
 #define LED_PIN 8
 #define NUMPIXELS 16
 
+// to-do: melhorar a descrição dos pinos
+
 /*
   Colors LED cables: GREEN -> DATA; WHITE -> POWER; ORAGE -> GROUND
 */
