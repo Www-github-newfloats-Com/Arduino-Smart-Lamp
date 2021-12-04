@@ -1,35 +1,36 @@
 #include "Controller.h"
 
-//#ifdef __AVR__
-//#include <avr/power.h>
-//#endif
+/*
+  Colors LED cables: GREEN -> DATA; WHITE -> POWER; ORANGE -> GROUND
+*/
 
-#define SONG_PIN 3
+// #define SONG_PIN 3
 
-void setup() {
-  Serial.begin(9600);
-  initController();
-  pinMode(SONG_PIN, INPUT);
+void setup()
+{
+    Serial.begin(9600);
+    initController();
+
+#ifdef SENSOR_SONG_PIN
+    pinMode(SONG_PIN, INPUT);
+#endif
 }
 
-void loop() {
+void loop()
+{
 
-  if (Serial.available()) {
-    String[] index = Serial.readString().substring("-");
-    // say what you got:
-    Serial.print("I received: ");
-    Serial.println(index[0]);
-    //setColorIndex(index);
-    //loopSelectColorByIndex();
-    //delay(2000);
-  } else {
+#ifdef SENSOR_SONG_PIN
 
-  }
+    if (digitalRead(SONG_PIN) == HIGH)
+    {
+        selectColorByIndexMode();
+        incrementIndex();
+        delay(1000);
+    }
 
-  //loopSelectColorByIndex();
-  delay(500);
+#else
 
-  //    if (digitalRead(SONG_PIN) == HIGH) {
-  //        delay(500);
-  //    }
+    christmasTreeMode();
+
+#endif
 }

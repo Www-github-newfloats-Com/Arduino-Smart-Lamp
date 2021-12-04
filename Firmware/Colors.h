@@ -13,7 +13,7 @@ void showColorGreen();
 
 void showColorBlue();
 
-void showColorOrange();
+void showColorYellow();
 
 void showColorPurple();
 

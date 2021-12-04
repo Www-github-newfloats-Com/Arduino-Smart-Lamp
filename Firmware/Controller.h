@@ -3,8 +3,12 @@
 
 void initController();
 
+void incrementIndex();
+
 void setColorIndex(int index);
 
-void loopSelectColorByIndex();
+void selectColorByIndexMode();
+
+void christmasTreeMode();
 
 #endif
