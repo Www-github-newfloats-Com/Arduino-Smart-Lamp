@@ -16,8 +16,8 @@ Library Used -> [Adafruit NeoPixel](https://github.com/adafruit/Adafruit_NeoPixe
 
 ### Used as a christmas tree
 
-- Cores aleatórias
-- Velocidade de pisca-pisca aleatorio
+- Random colors
+- Random flasher speed
 - To use this mode just comment the following excerpt: #define SONG_PIN
 
 ### Using sound sensor [palms] to change the lamp color
